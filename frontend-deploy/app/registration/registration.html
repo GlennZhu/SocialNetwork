@@ -1,0 +1,47 @@
+<form name="information">
+	<table>
+		<p>Username:</p>
+		<p><input type="text" name="username" ng-model="usernameModel" required ng-pattern="/^[^0-9][A-Za-z0-9]*$/"></p>
+		<div class="custom-error" ng-show="information.username.$invalid">
+			Invalid: 
+			<span ng-show="information.username.$error.required">User id is required.</span>
+			<span ng-show="information.username.$error.pattern">User id doesn't respect the pattern.</span>
+			</div>
+
+		<p>Zip Code:</p>
+		<p><input type="number" name="zipcode" ng-model="zipcodeModel" required ng-minlength="5" ng-maxlength="5"></p>
+		<div class="custom-error" ng-messages="information.zipcode.$error" ng-show="information.zipcode.$invalid">
+			Invalid: 
+			<span ng-show="information.zipcode.$error.required">Zip code is required.</span>
+			<span ng-show="information.zipcode.$error.minlength">Your field is too short</span>
+			<span ng-show="information.zipcode.$error.maxlength">Your field is too long</span>
+			</div>
+
+		<p>Email Address:</p>
+		<p><input type="email" name="emailaddress" ng-model="emailModel" required ng-pattern="/\S+@\S+\.\S+/"></p>
+		<div class="custom-error" ng-show="information.emailaddress.$invalid">
+			Invalid: 
+			<span ng-show="information.emailaddress.$error.required">Email is required.</span>
+			<span ng-show="information.emailaddress.$error.pattern">Email doesn't respect the pattern.</span>
+			</div>
+
+		<p>Password:</p>
+		<p><input type="password" name="password" id="passwordModel" ng-model="passwordModel" required></p>
+		<div class="custom-error" ng-show="information.password.$error"> 
+			<span ng-show="information.password.$error.required">Password is required.</span>
+		</div>
+
+		<p>Password Confirmation:</p>
+		<p><input type="password" name="passwordConfirmation" ng-model="passwordConfirmationModel" confirm-password="passwordModel" required></p>
+    	<div class="custom-error" ng-show="information.passwordConfirmation.$error"> 
+			<span ng-show="information.passwordConfirmation.$error.required">Password confirmation is required.</span>
+    		<span class="msg-error" ng-show="information.passwordConfirmation.$error.pwmatch">Passwords don't match.</span> 
+    	</div>
+
+		<p>
+			<button ng-click="vm.backToMain()" type="button" class="btn btn-default">Back</button>
+			<button ng-click="vm.clearRegistrationForm()" type="button" class="btn btn-default">Clear</button>
+			<button ng-click="vm.submitInputs(information.username.$viewValue, information.zipcode.$viewValue, information.emailaddress.$viewValue, information.password.$viewValue)" type="button" class="btn btn-primary" id="submitButton">Submit</button>
+		</p> 
+	</table>
+</form>

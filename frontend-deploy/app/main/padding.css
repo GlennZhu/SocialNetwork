@@ -1,0 +1,22 @@
+#uploadProfileImageDiv {
+    padding-top: 10px;
+}
+#textareaButtonGroupDiv {
+	padding-top: 10px;	
+}
+#addFollowedUser {
+	padding-right: 20px;
+}
+#textareaGroup {
+	padding-left: 16px;
+}
+#nameDisplay {
+	padding-left: 15px;
+}
+
+.left-padding {
+    padding-left: 20px;
+}
+.top-padding {
+	padding-top: 10px;
+}

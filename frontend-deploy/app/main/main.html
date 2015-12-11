@@ -1,0 +1,93 @@
+<div id="wrapper">
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a ng-href="#">
+                Following
+                </a>
+            </li>
+            <li>
+                <div class="input-group" id="addFollowedUser">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" id="addFollowedUserButton" type="button" ng-click="vm.addFollowedUser(addFollowedUserInputModel); addFollowedUserInputModel=null">Add</button>
+                    </span>
+                    <input type="text" class="form-control" placeholder="{{vm.addFollowingPlaceHolder}}" ng-model="addFollowedUserInputModel">
+                </div>
+            </li>
+            <li ng-repeat="user in vm.followingUsers" my-popover ng-mouseenter="vm.mouseenter(user)" ng-mouseleave="vm.mouseleave(user)">
+                <a ng-href="#" id="pop{{user.name}}" rel="popover" data-placement="bottom" data-content="{{vm.userMap[user.name].status}}" data-trigger="hover" class="left-padding">
+                    <table>
+                        <tr>
+                            <td>
+                                <img ng-src="{{vm.userMap[user.name]['img']}}" alt="profileImage" class="img-circle Column" width="20" height="20">
+                                    {{' ' + user.name}}
+                                </img>
+                            </td>
+                            <td>
+                                <a ng-show="user.showDelete" id="deleteFollowedUser" ng-click="vm.delete(user.name)">&nbsp;&nbsp;Delete</a>
+                            </td>
+                        </tr>
+                    </table>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-light bg-faded">
+            <ul class="nav navbar-nav pull-right">
+                <li class="nav-item active">
+                    <a class="nav-link" id="settingsButton" ng-href="#settings/{{vm.name}}">Settings <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" ng-click="vm.logout()" ng-href="#landing">Log Out</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container" style="position:relative">
+
+            <div class="card">
+                <div class="card-block">
+                    <img class="card-img-top" ng-src="{{vm.userMap[vm.name]['img']}}" alt="Card image cap" width="660" height="660">
+                    <span class="btn btn-secondary btn-file" style="width:660px">
+                        Update Photo
+                        <input type="file" accept="image/*" onchange="angular.element(this).scope().vm.setProfileImage(this)" >
+                    </span>
+                </div>
+                <div class="card-block">
+                    <h1 id="nameDisplay">{{vm.name}}</h1>
+                    <div class="col-lg-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="{{vm.status}}" ng-model="statusInputModel" style="width:500px">
+                            <span class="btn input-group-btn">
+                            <button class="btn btn-primary" id="updateStatusButton" type="button" ng-click="vm.updateStatus(statusInputModel)">Update Status</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="input-group" style="width:517px" id="textareaGroup">
+                        <textarea class="form-control custom-control" rows="3" style="resize:none" id="postTextarea" ng-model="textareaModel"></textarea> 
+                    </div>
+                    <span class="btn">
+                        <div class="btn-group" id="textareaButtonGroupDiv">
+                        <button type="button" class="btn btn-secondary" ng-click="textareaModel=null">Clear</button>
+                        <span class="btn btn-secondary btn-file">
+                            Upload
+                            <input type="file" accept="image/*" onchange="angular.element(this).scope().vm.setUploadImage(this)" >
+                        </span>
+                        <button type="button" id="postButton" class="btn btn-primary" ng-click="vm.makePost(textareaModel, 'postTextarea'); textareaModel=null">Post</button>
+                        </div>
+                    </span>
+                </div>
+            </div>
+            <div class="rightOfSidebar">
+                <input type="search" ng-model="searchText" placeholder="Search...">
+            </div>
+            <div class="rightOfSidebar card-columns">
+                <div class="card" ng-repeat="post in vm.posts | filter:searchText">
+                    <my-display-post post-data="post" update-post="vm.updatePost" user-data="vm.userMap" me-name="vm.name" post-index="$index"></my-display-post>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

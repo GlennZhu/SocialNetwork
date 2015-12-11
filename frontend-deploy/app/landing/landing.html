@@ -1,0 +1,19 @@
+<div>
+    <div class="container">
+        <table style="width:100%">
+            <tr>
+                <td>
+                    <button type="button" id="loginButton" class="btn btn-default" data-toggle="modal" data-target="#loginModal">Log In</button>
+                    <a class="btn btn-primary" id="signupButton" ng-href="#registration">Sign Up</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal fade" id="loginModal" role="dialog" ng-include="'app/modal/loginmodal.html'"></div>
+    <div class="card-columns">
+        <div class="card" ng-repeat="post in vm.posts">
+            <my-display-post post-data="post" user-data="vm.userMap" me-name="vm.name" post-index="$index"></my-display-post>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,5 @@
+{ 
+     "netid": "zz23",
+  "frontend": "https://socialappglenn.herokuapp.com",
+   "backend": "https://socialappglennbackend.herokuapp.com"
+}

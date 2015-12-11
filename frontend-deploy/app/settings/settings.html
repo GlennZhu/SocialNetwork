@@ -1,0 +1,25 @@
+<div class="col-lg-6">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="{{vm.email}}" ng-model="emailInputModel" style="width:500px">
+        <span class="btn input-group-btn">
+        <button class="btn btn-primary" id="updateEmailButton" type="button" ng-click="vm.updateEmail(emailInputModel);emailInputModel=null">Update Email</button>
+        </span>
+    </div>
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="{{vm.zipcode}}" ng-model="zipInputModel" style="width:500px">
+        <span class="btn input-group-btn">
+        <button class="btn btn-primary" id="updateZipcodeButton" type="button" ng-click="vm.updateZipcode(zipInputModel);zipInputModel=null">Update Zip Code</button>
+        </span>
+    </div>
+    <div class="input-group">
+        <input type="password" class="form-control" placeholder="{{vm.passwordPlaceHolder}}" ng-model="passwordInputModel" style="width:500px">
+        <span class="btn input-group-btn">
+        <button class="btn btn-primary" id="updatePasswordButton" type="button" ng-click="vm.updatePassword(passwordInputModel);passwordInputModel=null">Update Password</button>
+        </span>
+    </div>
+    <span class="btn btn-primary btn-file">
+        Upload Profile Image
+        <input type="file" accept="image/*" onchange="angular.element(this).scope().vm.uploadProfileImage(this)" >
+    </span>
+    <button class="btn btn-primary" ng-click="vm.backToMain()">Back</button>
+</div>

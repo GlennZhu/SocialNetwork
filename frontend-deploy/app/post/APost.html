@@ -1,0 +1,48 @@
+<div>
+   <div ng-if="post.img">
+        <img class="card-img-top" ng-src="{{post.img}}" alt="Card image cap" style="width:100%"></img>
+    </div>
+     <div class="card-block">
+        <img ng-src="{{userData[post.author]['img']}}" alt="" class="img-circle Column" width="40" height="40">
+            <button type="button" id="updatePostButton" class="btn btn-secondary btn-sm" ng-click="vm.updatePost(post._id, meName)">update</button>
+        </img>
+        <p>
+            <small>{{post.date}}</small>
+        </p>
+        
+        <p class="card-text" id="postBody"><strong>{{post.author}}</strong> {{post.body}}</p>
+        <button type="button" class="btn btn-primary" ng-click="vm.toggleCommentArea(post)" event-focus="click" event-focus-id="postTextarea">
+            {{vm.commentButtonText()}}
+        </button>
+        <div ng-show="post.showComment">
+            <table>
+                <tr ng-repeat="comment in post.comments">
+                    <td>
+                        <img ng-src="{{userData[comment.author]['img']}}" alt="" class="img-circle Column" width="20" height="20">
+                            <button type="button" id="updateCommentButton" class="btn btn-secondary btn-sm" ng-click="vm.openUpdateCommentPage(post._id, comment._id, meName)">update</button>
+                        </img>
+                        <p>
+                            <small>{{comment.date}}</small>
+                        </p>
+                        <p>
+                            <strong>{{comment.author}}</strong> 
+                            {{comment.body}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input-group top-padding" ng-init="commentInputId='commentInput' + postIndex">
+                            <input type="text" class="form-control" ng-model="commentModel" id="{{commentInputId}}"></input>
+                            <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button" ng-click="vm.comment(post, meName, commentModel, commentInputId); commentModel=null">
+                                ↵
+                            </button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

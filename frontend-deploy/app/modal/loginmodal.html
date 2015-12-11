@@ -1,0 +1,34 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span></span></button>
+      <h4 class="modal-title">Log in to Starcraft World</h4>
+    </div>
+    <div class="modal-body">
+      <form name="loginInfo">
+        <div class="form-group">
+          <label for="usernameInput">Username</label>
+          <input type="text" class="form-control" id="usernameInput" name="usernameInput" placeholder="username" ng-model="usernameModel" required ng-pattern="/^[^0-9][A-Za-z0-9]*$/">
+          <div class="custom-error" ng-show="loginInfo.usernameInput.$invalid">
+            Invalid: 
+            <span ng-show="loginInfo.usernameInput.$error.required">User id is required.</span>
+            <span ng-show="loginInfo.usernameInput.$error.pattern">User id doesn't respect the pattern.</span>
+          </div>          
+        </div>
+
+        <div class="form-group">
+          <label for="passwordInput">Password</label>
+          <input type="password" class="form-control" id="passwordInput" name="passwordInput" placeholder="password" ng-model="passwordModel" required>
+          <div class="custom-error" ng-show="loginInfo.passwordInput.$invalid">
+            Invalid: 
+            <span ng-show="loginInfo.passwordInput.$error.required">Password is required.</span>
+          </div>          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" id="submitButton" class="btn btn-primary" ng-click="vm.login(loginInfo.usernameInput.$invalid || loginInfo.passwordInput.$invalid, usernameModel, passwordModel)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

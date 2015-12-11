@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Social App Server" errors="0" tests="0" failures="0" time="0.001" timestamp="2015-11-15T01:56:48">
+</testsuite>
+<testsuite name="Social App Server.GET /posts" errors="0" tests="1" failures="0" time="0.061" timestamp="2015-11-15T01:56:48">
+  <testcase classname="Social App Server.GET /posts" name="return 3 posts" time="0.058"></testcase>
+</testsuite>
+<testsuite name="Social App Server.GET /posts/2" errors="0" tests="1" failures="0" time="0.02" timestamp="2015-11-15T01:56:48">
+  <testcase classname="Social App Server.GET /posts/2" name="returns the second post with id 2" time="0.019"></testcase>
+</testsuite>
+<testsuite name="Social App Server.GET /posts/4" errors="0" tests="1" failures="0" time="0.015" timestamp="2015-11-15T01:56:48">
+  <testcase classname="Social App Server.GET /posts/4" name="returns empty array with id 4" time="0.014"></testcase>
+</testsuite>
+<testsuite name="Social App Server.POST /post increment the number of posts" errors="0" tests="1" failures="0" time="0.051" timestamp="2015-11-15T01:56:48">
+  <testcase classname="Social App Server.POST /post increment the number of posts" name="increment the post id when adding two posts" time="0.051"></testcase>
+</testsuite>
+</testsuites>

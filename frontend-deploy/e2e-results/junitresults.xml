@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="Social Network App" timestamp="2015-11-14T22:08:08" hostname="localhost" time="29.744" errors="0" tests="2" skipped="0" disabled="0" failures="0">
+  <testcase classname="Social Network App" name="can register new user" time="3.615" />
+  <testcase classname="Social Network App" name="shows 12 posts for non-login users" time="1.062" />
+ </testsuite>
+ <testsuite name="Social Network App.Logg in" timestamp="2015-11-14T22:08:12" hostname="localhost" time="25.064" errors="0" tests="9" skipped="0" disabled="0" failures="0">
+  <testcase classname="Social Network App.Logg in" name="logs in as the test user" time="2.546" />
+  <testcase classname="Social Network App.Logg in" name="creates a post" time="2.642" />
+  <testcase classname="Social Network App.Logg in" name="updates status" time="3.028" />
+  <testcase classname="Social Network App.Logg in" name="adds followed user" time="2.597" />
+  <testcase classname="Social Network App.Logg in" name="removes followed user" time="2.466" />
+  <testcase classname="Social Network App.Logg in" name="can search for a specific post" time="2.433" />
+  <testcase classname="Social Network App.Logg in" name="updates user email" time="3.191" />
+  <testcase classname="Social Network App.Logg in" name="updates user zipcode" time="3.064" />
+  <testcase classname="Social Network App.Logg in" name="updates user password" time="3.093" />
+ </testsuite>
+</testsuites>

@@ -1,0 +1,28 @@
+{
+  "name": "backend-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app_server/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "md5": "^2.0.0",
+    "mongodb": "^2.0.49",
+    "mongoose": "^4.2.9",
+    "multer": "^1.1.0",
+    "node-fs": "^0.1.7",
+    "redis": "^2.4.2"
+  },
+  "devDependencies": {
+    "dotenv": "^1.2.0",
+    "jasmine": "^2.3.2",
+    "jasmine-node": "^1.14.5",
+    "request": "^2.65.0"
+  }
+}
